@@ -18,6 +18,8 @@ in {
   inherit (super.callPackage srcs.radare2-nix {}) radare2 r2-for-cutter;
   cutter = self.libsForQt5.callPackage srcs.cutter-nix {};
 
+  cutter-with-plugins = self.callPackage ./cutter-with-plugins.nix {};
+
   # Plugins
   r2ghidra-dec = self.libsForQt5.callPackage ./plugins/r2ghidra-dec.nix {};
 }
