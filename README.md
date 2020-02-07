@@ -16,3 +16,10 @@ Or you can use `nix run` to enter a shell with the specified plugins.
 ```console
 $ nix run -f run.nix --arg plugins '["r2ghidra-dec"]'
 ```
+
+Alternatively, you can add an option in your `configuration.nix` and add the plugins directly to `environment.systemPackages`.
+
+```nix
+environment.pathsToLink = [ "/share/radare2" "/share/RadareOrg" ];
+environment.systemPackages = with pkgs; [ r2ghidra-dec ];
+```
